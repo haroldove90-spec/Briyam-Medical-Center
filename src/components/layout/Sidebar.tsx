@@ -82,7 +82,7 @@ export function Sidebar({ isOpen, setIsOpen }: SidebarProps) {
       <div className="px-4 py-2">
         <button
           onClick={() => logout()}
-          className="w-full flex items-center justify-center px-4 py-2 border border-white/20 rounded-md shadow-sm text-sm font-medium text-white bg-red-600/20 hover:bg-red-600/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors"
+          className="w-full flex items-center justify-center px-4 py-2 border border-white/20 rounded-md shadow-sm text-sm font-medium text-white bg-[#1691CC]/20 hover:bg-[#1691CC]/40 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#1691CC] transition-colors"
         >
           <LogOut className="mr-2 h-4 w-4" />
           Cerrar Sesión
