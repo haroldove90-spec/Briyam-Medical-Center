@@ -1,5 +1,8 @@
 -- SQL Schema for Dr. Christian Janis Sandoval (Briyam Medical App)
 
+-- 0. Enable UUID Extension
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
 -- 1. Patients Table
 CREATE TABLE IF NOT EXISTS patients (
   id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
@@ -92,7 +95,7 @@ ALTER PUBLICATION supabase_realtime ADD TABLE clinical_scales;
 ALTER PUBLICATION supabase_realtime ADD TABLE prescriptions;
 ALTER PUBLICATION supabase_realtime ADD TABLE notifications;
 
--- RLS Policies (Basic - Allow all for now, should be hardened later)
+-- RLS Policies (Allow all for everyone - including unauthenticated users)
 ALTER TABLE patients ENABLE ROW LEVEL SECURITY;
 ALTER TABLE appointments ENABLE ROW LEVEL SECURITY;
 ALTER TABLE medications ENABLE ROW LEVEL SECURITY;
@@ -100,9 +103,9 @@ ALTER TABLE clinical_scales ENABLE ROW LEVEL SECURITY;
 ALTER TABLE prescriptions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE notifications ENABLE ROW LEVEL SECURITY;
 
-CREATE POLICY "Allow all access to authenticated users" ON patients FOR ALL USING (true);
-CREATE POLICY "Allow all access to authenticated users" ON appointments FOR ALL USING (true);
-CREATE POLICY "Allow all access to authenticated users" ON medications FOR ALL USING (true);
-CREATE POLICY "Allow all access to authenticated users" ON clinical_scales FOR ALL USING (true);
-CREATE POLICY "Allow all access to authenticated users" ON prescriptions FOR ALL USING (true);
-CREATE POLICY "Allow all access to authenticated users" ON notifications FOR ALL USING (true);
+CREATE POLICY "Allow all access to everyone" ON patients FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all access to everyone" ON appointments FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all access to everyone" ON medications FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all access to everyone" ON clinical_scales FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all access to everyone" ON prescriptions FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "Allow all access to everyone" ON notifications FOR ALL USING (true) WITH CHECK (true);

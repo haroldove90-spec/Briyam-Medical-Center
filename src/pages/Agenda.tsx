@@ -143,10 +143,10 @@ export function Agenda() {
       
       if (errorMessage.includes('patients_mrn_key')) {
         errorMessage = 'Ya existe un paciente con este número de Historia Clínica (MRN).';
-      }
-      
-      if (errorMessage.includes('not find the table')) {
+      } else if (errorMessage.includes('not find the table')) {
         errorMessage = 'La tabla de citas no existe en la base de datos. Contacte al administrador.';
+      } else {
+        errorMessage = `Error: ${errorMessage}`;
       }
       
       addNotification('Error', `No se pudo registrar la cita: ${errorMessage}`);

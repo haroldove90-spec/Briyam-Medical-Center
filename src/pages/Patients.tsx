@@ -118,6 +118,8 @@ export function Patients() {
       
       if (error.message?.includes('patients_mrn_key')) {
         errorMessage = 'Ya existe un paciente con este número de Historia Clínica (MRN).';
+      } else if (error.message) {
+        errorMessage = `Error: ${error.message}`;
       }
       
       addNotification('Error', errorMessage);
