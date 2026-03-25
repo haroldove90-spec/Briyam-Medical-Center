@@ -1,0 +1,7 @@
+{
+  "name": "Dr. Christian Janis Sandoval",
+  "description": "Neurocirujano ",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
