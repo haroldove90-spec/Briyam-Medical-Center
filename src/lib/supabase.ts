@@ -18,7 +18,7 @@ export const supabase = createClient(
       autoRefreshToken: true,
     },
     global: {
-      headers: { 'x-application-name': 'dr-noe-santiago' },
+      headers: { 'x-application-name': 'dr-christian-janis' },
     },
   }
 );
